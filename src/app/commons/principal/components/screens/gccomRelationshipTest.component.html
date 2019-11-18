@@ -1,0 +1,8 @@
+<p-accordion [multiple]="true" expandIcon="fa fa-chevron-right" collapseIcon="fa fa-chevron-down">
+    <p-accordionTab header="Filtro de Búsqueda" [selected]="true">
+        <gccomRelationshipTestFilter></gccomRelationshipTestFilter>
+    </p-accordionTab>
+    <p-accordionTab header="Criterio de Resultados" [selected]="showGrid">
+        <gccomRelationshipTestGrid></gccomRelationshipTestGrid>
+    </p-accordionTab>
+</p-accordion>

@@ -1,0 +1,49 @@
+<form [formGroup]="userform">
+    <p-scrollPanel [style]="{width: '100%', height: '280px'}">
+        <div style="margin-top: 20px;  float: left;">
+            <div style="width: 400px;">
+                <label>Nombre:</label>
+                <input style="float: right;" formControlName="name" id="name" type="text" size="30" pInputText (change)="changeName()" #name>
+                <p-message severity="error" text="El campo Nombre es obligatorio" 
+                *ngIf="!userform.controls['name'].valid&&validate"></p-message>
+            </div>
+            <div style="width: 400px; margin-top: 20px;">
+                <label>Primer Apellido: </label>
+                <input style="float: right;" id="firstName" type="text" size="30" pInputText #firstName>
+            </div>
+            <div style="width: 400px; margin-top: 20px;">
+                <label>Segundo Apellido: </label>
+                <input style="float: right;" id="lastName" type="text" size="30" pInputText #lastName>
+            </div>
+        </div>
+        <div style="float: left; margin-left: 30px;">
+            <div style="width: 400px; margin-top: 20px;">
+                <label>Fecha Nacimiento:</label>
+                <p-calendar [locale]="es" dateFormat="dd/mm/yy" icon="fa fa-calendar" [showIcon]="true" #fecha>
+                </p-calendar>
+            </div>
+            <div style="width: 400px; margin-top: 20px;">
+                <label>Teléfono: </label>
+                <input style="float: right;" id="phone" type="text" size="30" pInputText #phone>
+            </div>
+            <div style="width: 400px; margin-top: 20px;">
+                <label>Tipo Documento: </label>
+                <p-dropdown [options]="typeDocumentList" [showClear]="true" #typeDocument></p-dropdown>
+            </div>
+            <div style="width: 400px; margin-top: 20px;">
+                <label>Documento: </label>
+                <input style="float: right;" id="document" type="text" size="30" pInputText #document>
+            </div>
+        </div>
+        <div style="float: right; right: 20px; bottom: 20px; position: absolute;">
+            <div style="float: left;">
+                <p-button id="search" type="button" label="Buscar" icon="fa fa-search" (click)="search($event)">
+                </p-button>
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <p-button id="clean" type="button" label="Limpiar" icon="fa fa-eraser" (click)="clear($event)">
+                </p-button>
+            </div>
+        </div>
+    </p-scrollPanel>
+</form>
